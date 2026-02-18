@@ -6,7 +6,15 @@
 
     <script>try { if (localStorage.get("__framer_force_showing_editorbar_since")) { const n = document.createElement("link"); n.rel = "modulepreload"; n.href = "https://framer.com/edit/init.mjs"; document.head.appendChild(n) } } catch (e) { }</script>
     <!-- Start of headStart -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KHNEE7Y7TM"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
+        gtag('config', 'G-KHNEE7Y7TM');
+    </script>
     <!-- End of headStart -->
     <meta name="viewport" content="width=device-width">
     <meta name="generator" content="Framer 293632e">
@@ -4544,6 +4552,11 @@
             function enforceSignupForm() {
                 var signupInner = document.querySelector('.framer-34ph2a');
                 if (!signupInner) return false;
+
+                // Fix height/overflow clipping (especially on mobile)
+                signupInner.style.height = 'auto';
+                signupInner.style.minHeight = 'min-content';
+                signupInner.style.overflow = 'visible';
 
                 // Remove the old button if it exists
                 var oldButton = signupInner.querySelector('.framer-18xz5pj');
