@@ -4750,7 +4750,8 @@
                     {
                         selector: '.framer-15a013n',
                         src: "https://framerusercontent.com/images/moL1Zr6yRwp05UPgRdmLGQq3iLw.webp?width=2846&height=1620",
-                        srcset: "https://framerusercontent.com/images/moL1Zr6yRwp05UPgRdmLGQq3iLw.webp?scale-down-to=512&width=2846&height=1620 512w,https://framerusercontent.com/images/moL1Zr6yRwp05UPgRdmLGQq3iLw.webp?scale-down-to=1024&width=2846&height=1620 1024w,https://framerusercontent.com/images/moL1Zr6yRwp05UPgRdmLGQq3iLw.webp?scale-down-to=2048&width=2846&height=1620 2048w,https://framerusercontent.com/images/moL1Zr6yRwp05UPgRdmLGQq3iLw.webp?width=2846&height=1620 2846w"
+                        srcset: "https://framerusercontent.com/images/moL1Zr6yRwp05UPgRdmLGQq3iLw.webp?scale-down-to=512&width=2846&height=1620 512w,https://framerusercontent.com/images/moL1Zr6yRwp05UPgRdmLGQq3iLw.webp?scale-down-to=1024&width=2846&height=1620 1024w,https://framerusercontent.com/images/moL1Zr6yRwp05UPgRdmLGQq3iLw.webp?scale-down-to=2048&width=2846&height=1620 2048w,https://framerusercontent.com/images/moL1Zr6yRwp05UPgRdmLGQq3iLw.webp?width=2846&height=1620 2846w",
+                        fetchpriority: "high"
                     },
                     {
                         selector: '.framer-1q0l67o',
@@ -4781,8 +4782,10 @@
                     if (data.srcset && img.getAttribute('srcset') !== data.srcset) {
                         img.setAttribute('srcset', data.srcset);
                     } else if (!data.srcset && img.hasAttribute('srcset')) {
-                        // If we only want the single WebP src, remove the PNG srcset that Framer might have added
                         img.removeAttribute('srcset');
+                    }
+                    if (data.fetchpriority && img.getAttribute('fetchpriority') !== data.fetchpriority) {
+                        img.setAttribute('fetchpriority', data.fetchpriority);
                     }
                 });
             }
